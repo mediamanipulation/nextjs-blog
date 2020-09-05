@@ -8,8 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sanity/client": "^1.150.1",
+    "bootstrap": "^4.5.2",
+    "init": "^0.1.2",
     "next": "9.5.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-bootstrap": "^1.3.0",
+    "react-dom": "16.13.1",
+    "sanity": "^1.150.1",
+    "sass": "^1.26.10"
   }
 }
