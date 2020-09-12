@@ -1,8 +1,10 @@
+const { parsed: localEnv } = require('dotenv').config()
+const webpack = require('webpack')
 
 module.exports = {
-    env: {
-      SANITY_DATASET_NAME: process.env.SANITY_DATASET_NAME,
-      SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID,
-      SANITY_API_TOKEN: process.env.SANITY_API_TOKEN
-    }
+  webpack(config) {
+    config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
+
+    return config
   }
+}

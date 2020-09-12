@@ -1,7 +1,8 @@
 
 import { Card } from 'react-bootstrap';
+import Link from 'next/link';
 
-export default function CardItem() {
+export default function CardItem({ title, subTitle, image, date, author, link }) {
     return (
         <div>
             <Card className={`fj-card`}>
@@ -9,30 +10,34 @@ export default function CardItem() {
                     <Card.Header
                         className="d-flex flex-row">
                         <img
-                            src={'https://via.placeholder.com/150'}
+                            src={author?.avatar || 'https://via.placeholder.com/150'}
                             className="rounded-circle mr-3"
                             height="50px"
                             width="50px"
                             alt="avatar" />
                         <div>
-                            <Card.Title className="font-weight-bold mb-1">Placeholder Author</Card.Title>
-                            <Card.Text className="card-date">Placeholder Date</Card.Text>
+                            <Card.Title className="font-weight-bold mb-1">{author?.name}</Card.Title>
+                            <Card.Text className="card-date">{date}</Card.Text>
                         </div>
                     </Card.Header>
                     <div className="view overlay">
                         <Card.Img
-                            src='https://via.placeholder.com/250'
+                            src={image}
                             alt="Card image cap"
                         />
                     </div>
                     <Card.Body>
-                        <Card.Title className="card-main-title">Placeholder Title</Card.Title>
-                        <Card.Text>Placehodler Subtitle</Card.Text>
+                        <Card.Title className="card-main-title">{title}</Card.Title>
+                        <Card.Text>{subTitle}</Card.Text>
                     </Card.Body>
                 </div>
-                <a className="card-button">
-                    Read More
-                </a>
+                {link &&
+                    <Link {...link}>
+                        <a className="card-button">
+                            Read More
+                         </a>
+                    </Link>
+                }
             </Card>
         </div>
     )
